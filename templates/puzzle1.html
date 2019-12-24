@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Puzzle 1</title>
+  <script>
+    function checkAnswer() {
+      console.log("sup")
+      // var value = document.getElementById("answer-input").value.toLowerCase(); // Get input
+      // value = value.replace(/\s+/g, ''); // Regex away any whitespace
+      // value = md5(value.toLowerCase()); // Hash input
+      //
+      // if (value === "bc180dbc583491c00f8a1cd134f7517b") { // Compare hashed answer
+      //   window.alert("You've got it. Click ok.");
+      //   window.location.href = "https://soundcloud.com" +
+      //     "/nick-partridge-704468664" +
+      //     "/clue" + "/s-s1L5u";
+      //
+      // } else if (value === "50f889c1bbfbe5023091f2fa6274f1a4") {
+      //   window.alert("Almost! From where?");
+      // } else {
+      //   window.alert("Not exactly... try again");
+      // }
+    }
+  </script>
+</head>
+<body>
+<h1>Puzzle 1: Find the codes</h1>
+<p><i>Your first clue is hidden somewhere on the web. This should tell you where to find it.</i></p>
+<p>Go watch 38ae83b83ed932, and tell me what you see.</p>
+<br>
+<p><i>If you think you figured it out:</i></p>
+<input type="text" id="answer-input" onsubmit="checkAnswer()">
+<button onclick="checkAnswer()">Check countersign</button>
+</body>
+</html>
