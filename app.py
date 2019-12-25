@@ -35,22 +35,31 @@ def checkPuzzle2():
     sol1 = request.json.get('ans1') # If not found, defaults to NoneType.
     sol2 = request.json.get('ans2') # If not found, defaults to NoneType.
     sol1Correct, sol2Correct = False, False
-    additionalMsg = ""
+    msg = ""
 
-    if sol1 == "brilliant":
+    if sol1 == "portland":
         sol1Correct = True
     if sol2 in ["纪念馆", "jìniànguǎn", "jinianguan"]:
         sol2Correct = True
 
-    if sol1Correct and sol2 == "memorial": return "Your first answer is correct. Your second answer is close."
-    elif sol1Correct: return "Your first answer is correct. What about the second?"
-    elif sol2Correct: return "Your second answer is correct. What about the first?"
-    elif sol1Correct and sol2Correct: return "C"
+    if sol1Correct and sol2Correct: return "C" # Immediately return if the answer was given.
 
-    return "Not exactly... try again"
+    if sol1 == "artridge":    msg += "Is that the name of a city?"
+    elif sol1 == "partridge": msg += "Ok, maybe Partridge could be the name of a city. But that's not where S.A.N.T.A. is headed first."
+    elif sol1 == "":          msg += ""
+    elif sol1Correct:         msg += "The location is correct."
+    else:                     msg += "That's not the right location."
+
+    if sol2 in ["morial", "morialinmandarin"]:        msg += " Now that you think of it, you remember the key to the activation phrase started with \"me\"."
+    elif sol2 in ["memorial", "memorialinmandarin"]:  msg += " Almost. It looks like you found the *key* to the deactivation phrase."
+    elif sol2 == "":                                  msg += ""
+    elif sol2Correct:                                 msg += " The deactivation phrase is correct."
+    else:                                             msg += " That's not the right deactivation phrase."
+
+    return msg
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
 
 
 @app.route('/puzzle3', methods=["GET"])
@@ -89,8 +98,6 @@ def checkPuzzle4():
         return "C"
     else:
         return "Not exactly... try again"
-
-
 
 
 

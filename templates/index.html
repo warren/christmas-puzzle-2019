@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Flask Template Example</title>
+  <title>Christmas Puzzlehunt 2019</title>
 </head>
 <body>
 <div>
-  <p>Puzzles</p>
+  <h1>Christmas Puzzlehunt 2019</h1>
+  <p>Merry Christmas! Welcome to the puzzle website. As you complete each puzzle, the next will unlock.</p>
+  <h2>Web puzzles:</h2>
 </div>
 <ol>
-  <li><a href="puzzle1">Find the codes</a></li>
+  <li><a href="puzzle1">Simple Beginnings</a></li>
 
   {% if latestCompleted > 0 %}
-  <li><a href="puzzle2">Crack the codes</a></li>
+  <li><a href="puzzle2">The Naughty List</a></li>
   {% else %}
-  <li>Crack the codes</li>
+  <li>The Naughty List</li>
   {% endif %}
 
   {% if latestCompleted > 1 %}
