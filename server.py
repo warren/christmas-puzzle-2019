@@ -37,17 +37,17 @@ def checkPuzzle2():
     sol1Correct, sol2Correct = False, False
     additionalMsg = ""
 
-    if sol1 == "brilliant":
+    if sol1 == "portland":
         sol1Correct = True
     if sol2 in ["纪念馆", "jìniànguǎn", "jinianguan"]:
         sol2Correct = True
 
-    if sol1Correct and sol2 == "memorial": return "Your first answer is correct. Your second answer is close."
-    elif sol1Correct: return "Your first answer is correct. What about the second?"
-    elif sol2Correct: return "Your second answer is correct. What about the first?"
-    elif sol1Correct and sol2Correct: return "C"
+    if sol1Correct and sol2Correct: return "C"
+    elif sol1Correct and sol2 == "memorial": return "The location is correct. Your deactivation phrase is close."
+    elif sol1Correct:                        return "The location is correct. What about the deactivation phrase?"
+    elif sol2Correct:                        return "The deactivation phrase is correct. What about the location?"
 
-    return "Not exactly... try again"
+    return "Neither answer is correct... try again."
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)

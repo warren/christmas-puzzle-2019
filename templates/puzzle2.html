@@ -23,7 +23,7 @@
         return resp.text();
       }).then(parsedResp => {
         if (parsedResp === "C") { // then the answer was correct and we should grant a cookie.
-          window.alert("You found it. Try the next puzzle.");
+          window.alert("You figured it out - Christmas is saved!! Try the next puzzle.");
           document.cookie = "latestCompleted=2";
         } else {
           window.alert(parsedResp)
@@ -33,22 +33,34 @@
   </script>
 </head>
 <body>
-<h1>Puzzle 2: Crack the codes</h1>
-<p><i>There are two solutions hidden in here.</i></p>
+<h1>Puzzle 2: The Naughty List</h1>
+<p><i>
+  It's Christmas Day, and Santa is beginning his trek across the USA. But the elves messed up his itinerary! Instead of Santa's delivery route, they accidentally
+  gave him the hit list for S.A.N.T.A., the North Pole's state-of-the-art naughty child elimination machine.
+</i></p>
+<br>
+<p><i>
+  S.A.N.T.A. isn't ready for public testing yet! It must be shut down. Santa knows that the following locations are on S.A.N.T.A.'s hit list, but the first location got scratched out. And, in a bit of a poetic design decision, he knows that the deactivation phrase for S.A.N.T.A. is hidden somewhere in its itinerary.
+</i></p>
+<br>
+<p><i>
+  Can you figure out where S.A.N.T.A. plans to visit first, and the deactivation phrase necessary to save Christmas?
+</i></p>
 <ol>
-  <li>44.808147, -68.795013</li>
-  <li>37.951424, -91.768959</li>
-  <li>33.004260, -93.894990</li>
-  <li>dfd</li>
-  <li>61.517010, -160.354430</li>
-  <li>40.754490, -86.362999</li>
+  <li>(The first set of coordinates are scratched out beyond legibility)</li>
+  <li>47.002960, -114.482000</li>
+  <li>41.499939, -71.661240</li>
+  <li>65.156471,  -152.103714</li>
+  <li>37.966890, -87.038060</li>
   <li>42.679909, -70.837341</li>
-  <li>47.115280, -97.133210</li>
+  <li>46.879002, -102.789879</li>
+  <li>33.366070, -111.963150</li>
+  <li>41.687382, -85.973541</li>
 </ol>
 <br>
-<p><i>Your first solution:</i></p>
+<p><i>City name:</i></p>
 <input type="text" id="answer-input1" onsubmit="checkAnswer()">
-<p><i>Your second solution (in Chinese):</i></p>
+<p><i>Deactivation phrase:</i></p>
 <input type="text" id="answer-input2" onsubmit="checkAnswer()">
 <button onclick="checkAnswers()">Check answers</button>
 </body>
