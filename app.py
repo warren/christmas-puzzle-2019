@@ -35,19 +35,28 @@ def checkPuzzle2():
     sol1 = request.json.get('ans1') # If not found, defaults to NoneType.
     sol2 = request.json.get('ans2') # If not found, defaults to NoneType.
     sol1Correct, sol2Correct = False, False
-    additionalMsg = ""
+    msg = ""
 
     if sol1 == "portland":
         sol1Correct = True
     if sol2 in ["纪念馆", "jìniànguǎn", "jinianguan"]:
         sol2Correct = True
 
-    if sol1Correct and sol2Correct: return "C"
-    elif sol1Correct and sol2 == "memorial": return "The location is correct. Your deactivation phrase is close."
-    elif sol1Correct:                        return "The location is correct. What about the deactivation phrase?"
-    elif sol2Correct:                        return "The deactivation phrase is correct. What about the location?"
+    if sol1Correct and sol2Correct: return "C" # Immediately return if the answer was given.
 
-    return "Neither answer is correct... try again."
+    if sol1 == "artridge":    msg += "Is that the name of a city?"
+    elif sol1 == "partridge": msg += "Ok, maybe Partridge could be the name of a city. But that's not where S.A.N.T.A. is headed first."
+    elif sol1 == "":          msg += ""
+    elif sol1Correct:         msg += "The location is correct."
+    else:                     msg += "That's not the right location."
+
+    if sol2 in ["morial", "morialinmandarin"]:        msg += " Now that you think of it, you remember the key to the activation phrase started with \"me\"."
+    elif sol2 in ["memorial", "memorialinmandarin"]:  msg += " Almost. It looks like you found the *key* to the deactivation phrase."
+    elif sol2 == "":                                  msg += ""
+    elif sol2Correct:                                 msg += " The deactivation phrase is correct."
+    else:                                             msg += " That's not the right deactivation phrase."
+
+    return msg
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
