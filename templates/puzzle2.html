@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Puzzle 1</title>
+  <title>Puzzle 2</title>
   <script>
-    function checkAnswer() {
+    function checkAnswers() {
       var value = document.getElementById("answer-input").value.toLowerCase(); // Get input
+      var value2 = document.getElementById("answer-input").value.toLowerCase(); // Get input
 
       const options = {
         method: 'POST',
@@ -29,12 +30,14 @@
   </script>
 </head>
 <body>
-<h1>Puzzle 1</h1>
-<p><i>Your first clue is hidden somewhere on the web.</i></p>
-<p>Watch iHBYCUbbZeo.</p>
+<h1>Puzzle 2: Crack the codes</h1>
+<p><i>Puzzle description.</i></p>
+<p>Go watch 38ae83b83ed932, and tell me what you see.</p>
 <br>
-<p><i>If you think you figured it out:</i></p>
+<p><i>Your answer:</i></p>
 <input type="text" id="answer-input" onsubmit="checkAnswer()">
-<button onclick="checkAnswer()">Check code</button>
+<p><i>Your other answer, in Chinese:</i></p>
+<input type="text" id="answer-input" onsubmit="checkAnswer()">
+<button onclick="checkAnswers()">Check answers</button>
 </body>
 </html>

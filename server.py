@@ -16,9 +16,10 @@ def puzzle1():
 def checkPuzzle1():
     proposedSol = request.json.get('ans') # If not found, defaults to NoneType.
 
-    if proposedSol == "hint":                return "Nice try."
-    elif proposedSol == "the actual answer": return "C"
-    else:                                    return "Not exactly... try again"
+    if proposedSol == "iHBYCUbbZeo": return "Yeah... it's not that simple. 🙃"
+    elif proposedSol == "hint":      return "Nice try."
+    elif proposedSol == "fifty":     return "C"
+    else:                            return "Not exactly... try again"
 
 
 @app.route('/puzzle2')
