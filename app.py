@@ -58,10 +58,6 @@ def checkPuzzle2():
 
     return msg
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
-
-
 @app.route('/puzzle3', methods=["GET"])
 def puzzle3():
     lc = int(request.cookies.get('latestCompleted', 0))
@@ -100,6 +96,8 @@ def checkPuzzle4():
         return "Not exactly... try again"
 
 
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
 
 
 
