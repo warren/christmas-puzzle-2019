@@ -5,22 +5,26 @@
   <title>Puzzle 1</title>
   <script>
     function checkAnswer() {
-      console.log("sup")
-      // var value = document.getElementById("answer-input").value.toLowerCase(); // Get input
-      // value = value.replace(/\s+/g, ''); // Regex away any whitespace
-      // value = md5(value.toLowerCase()); // Hash input
-      //
-      // if (value === "bc180dbc583491c00f8a1cd134f7517b") { // Compare hashed answer
-      //   window.alert("You've got it. Click ok.");
-      //   window.location.href = "https://soundcloud.com" +
-      //     "/nick-partridge-704468664" +
-      //     "/clue" + "/s-s1L5u";
-      //
-      // } else if (value === "50f889c1bbfbe5023091f2fa6274f1a4") {
-      //   window.alert("Almost! From where?");
-      // } else {
-      //   window.alert("Not exactly... try again");
-      // }
+      var value = document.getElementById("answer-input").value.toLowerCase(); // Get input
+
+      const options = {
+        method: 'POST',
+        body: JSON.stringify({ 'ans': value }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      };
+
+      fetch("puzzle1/check", options).then(resp => {
+        return resp.text();
+      }).then(parsedResp => {
+        if (parsedResp === "C") { // then the answer was correct and we should grant a cookie.
+          window.alert("You found it. Try the next puzzle.")
+          // TODO: Grant cookie.
+        } else {
+          window.alert(parsedResp)
+        }
+      });
     }
   </script>
 </head>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, jsonify, render_template, request
 app = Flask(__name__)
 
 @app.route('/')
@@ -8,6 +8,17 @@ def index():
 @app.route('/puzzle1')
 def puzzle1():
     return render_template("puzzle1.html", message="nice")
+
+
+
+@app.route('/puzzle1/check', methods=['POST'])
+def checkPuzzle1():
+    proposedSol = request.json.get('ans') # If not found, defaults to NoneType.
+
+    if proposedSol == "hint":                return "Nice try."
+    elif proposedSol == "the actual answer": return "C"
+    else:                                    return "Not exactly... try again"
+
 
 @app.route('/puzzle2')
 def puzzle2():
