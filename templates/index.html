@@ -5,18 +5,22 @@
 </head>
 <body>
 <div>
-  <p>{{ message }}</p>
+  <p>Puzzles</p>
 </div>
 <ol>
-<li>
-  <a href="puzzle1">Find the codes</a>
-</li>
-<li>
-  <a href="puzzle2">Crack the codes</a>
-</li>
-<li>
-  <a href="puzzle3">Codes</a>
-</li>
+  <li><a href="puzzle1">Find the codes</a></li>
+
+  {% if latestCompleted > 0 %}
+  <li><a href="puzzle2">Crack the codes</a></li>
+  {% else %}
+  <li>Crack the codes</li>
+  {% endif %}
+
+  {% if latestCompleted > 1 %}
+  <li><a href="puzzle2">Codes</a></li>
+  {% else %}
+  <li>Codes</li>
+  {% endif %}
 </ol>
 </body>
 </html>

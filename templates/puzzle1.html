@@ -19,8 +19,8 @@
         return resp.text();
       }).then(parsedResp => {
         if (parsedResp === "C") { // then the answer was correct and we should grant a cookie.
-          window.alert("You found it. Try the next puzzle.")
-          // TODO: Grant cookie.
+          window.alert("You found it. Try the next puzzle.");
+          document.cookie = "latestCompleted=1";
         } else {
           window.alert(parsedResp)
         }

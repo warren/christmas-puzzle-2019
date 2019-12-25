@@ -3,7 +3,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template("index.html", message="nice")
+    lc = int(request.cookies.get('latestCompleted', 0))
+    return render_template("index.html", latestCompleted=lc)
 
 @app.route('/puzzle1')
 def puzzle1():
