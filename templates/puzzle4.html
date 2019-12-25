@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Puzzle 4</title>
+  <script>
+    function checkAnswer() {
+      var value = document.getElementById("answer-input").value.toLowerCase(); // Get input
+
+      const options = {
+        method: 'POST',
+        body: JSON.stringify({ 'ans': value }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      };
+
+      fetch("puzzle4/check", options).then(resp => {
+        return resp.text();
+      }).then(parsedResp => {
+        if (parsedResp === "C") { // then the answer was correct and we should grant a cookie.
+          window.alert("You found it. Now, where would an enthusiastic mountain climber train in this household? There's your next clue.");
+          document.cookie = "latestCompleted=4";
+        } else {
+          window.alert(parsedResp)
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+<h1>Puzzle 4</h1>
+<p><i>Ms. Darkbloom</i></p>
+<p>Vivian Darkbloom reached the end of her line at 989, her husband at 687, and her daughter at 637. It was a shame, really, that their combined years hadn’t summed
+ <br> at 130, Charles thought to comment.</p>
+<br>
+<img src="/static/imgs/knight.png" alt="knight">
+<p><i>If you think you figured it out:</i></p>
+<input placeholder="Check answer" type="text" id="answer-input" onsubmit="checkAnswer()">
+<button onclick="checkAnswer()">Check code</button>
+</body>
+</html>

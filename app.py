@@ -51,3 +51,48 @@ def checkPuzzle2():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
+
+
+@app.route('/puzzle3', methods=["GET"])
+def puzzle3():
+    lc = int(request.cookies.get('latestCompleted', 0))
+    if lc < 2:
+        return "Solve the other puzzle first."
+    return render_template("puzzle3.html", solved = False)
+
+
+@app.route('/puzzle3/check', methods=["POST"])
+def checkPuzzle3():
+
+    answers = ["scotch", "the scotch", "scotch game", "scotch opener"]
+    if not request.json.get('ans'):
+        return "At least TRY."
+    if request.json.get('ans').lower() in answers:
+        return "C"
+    else:
+        return "Not exactly... try again"
+
+@app.route('/puzzle4', methods=["GET"])
+def puzzle4():
+    lc = int(request.cookies.get('latestCompleted', 0))
+    if lc < 3:
+        return "Solve the other puzzle first."
+    return render_template("puzzle4.html")
+
+@app.route('/puzzle4/check', methods=["POST"])
+def checkPuzzle4():
+
+    answers = ["an enthusiastic mountain climber", "enthusiastic climber", "mountain climber", "climber"]
+    if not request.json.get('ans'):
+        return "At least TRY."
+    if request.json.get('ans').lower() in answers:
+        return "C"
+    else:
+        return "Not exactly... try again"
+
+
+
+
+
+
+
