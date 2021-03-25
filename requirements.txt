@@ -83,7 +83,7 @@ python-dotenv==0.10.3
 python-engineio==1.5.4
 python-socketio==1.7.5
 pytz==2018.7
-PyYAML==3.13
+PyYAML==5.4
 pyzmq==16.0.4
 qtconsole==4.3.1
 redis==3.0.1
